@@ -23,7 +23,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-    
+      - uses: actions/javascript-action@v1
       # Runs a single command using the runners shell
       - name: ls
         run: ls
@@ -31,4 +31,4 @@ jobs:
       - name:release
         run: |
           echo test, and deploy your project.
-          - uses: actions/javascript-action@v1
+         
