@@ -10,7 +10,7 @@ jobs:
      - name: Checkout code
        uses: actions/checkout@v2
      - name: create Release
-       id: 1
+       id: testid
        uses: actions/create-release@v1
        env:
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
