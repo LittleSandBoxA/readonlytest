@@ -1,33 +1,33 @@
-name: release
+name:                          release
 on:
   push:
-    branches: [ main ]
-    workflow_dispatch: true
+    branches:                  [ main ]
+    workflow_dispatch:         true
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on:                   ubuntu-latest
     steps:
-     - name: Checkout code
-       uses: actions/checkout@v2
-     - name: create Release
-       id: testid
-       uses: actions/create-release@v1
+     - name:                   Checkout code
+       uses:                   actions/checkout@v2
+     - name:                   create Release
+       id:                     testid
+       uses:                   actions/create-release@v1
        env:
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+           GITHUB_TOKEN:       ${{ secrets.GITHUB_TOKEN }}
        with:
-           tag_name: 1.0
-           release_name: test
+           tag_name:           1.0
+           release_name:       test
            #|
-           body: new release
-           draft: false
-           prerelease: false
-    - name: Upload Release Asset
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
+           body:               new release
+           draft:              false
+           prerelease:         false
+     - name:                   Upload Release Asset
+        id:                    upload-release-asset
+        uses:                  actions/upload-release-asset@v1
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            GITHUB_TOKEN:      ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: ./README.md
-          asset_name: readme.md
-          asset_content_type: application/text
+          asset_path:          ./README.md
+          asset_name:          readme.md
+          asset_content_type:  application/text
