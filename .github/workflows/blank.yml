@@ -9,18 +9,26 @@ jobs:
         steps:
             - name: checkout
               uses: actions/checkout@v2
-            - name: create Releases
-              id: testid2
-              uses: actions/create-release@v1
+            # - name: create Releases
+            #   id: testid2
+            #   uses: actions/create-release@v1
+            #   env:
+            #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            #   with:
+            #     tag_name: release_name
+            #     #tag_name: ${{ github.ref }}
+            #     release_name: test3
+            #     body: release3
+            #     draft: false
+            #     prerelease: false
+            #下面的是第三方上传功能
+            - name: Upload to Release
+              run: ls
+              uses: JasonEtco/upload-to-release@v0.1.1
+              with:
+                args: README.md
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              with:
-                tag_name: release_name
-                #tag_name: ${{ github.ref }}
-                release_name: test3
-                body: release3
-                draft: false
-                prerelease: false
     #     -name: Upload Release Asset
     #         id: upload-release-asset
     #         uses: actions/upload-release-asset@v1
