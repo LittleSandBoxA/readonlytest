@@ -17,8 +17,8 @@ jobs:
               with:
                 tag_name: release_name
                 #tag_name: ${{ github.ref }}
-                release_name: test2
-                body: new release
+                release_name: test3
+                body: release3
                 draft: false
                 prerelease: false
     #     -name: Upload Release Asset
